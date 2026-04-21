@@ -1,9 +1,9 @@
 import { useEffect, useRef } from "react";
 import "./Clicktrail.css";
 
-const N = 8; // number of trail points (more = smoother but slower)
-const EASE = 0.15; // how quickly each point follows the previous (0-1, lower = more lag)
-const MAX_W = 20; // ribbon width at its widest point (center)
+const N = 6; // number of trail points (more = smoother but slower)
+const EASE = 0.1; // how quickly each point follows the previous (0-1, lower = more lag)
+const MAX_W = 15; // ribbon width at its widest point (center)
 const SETTLE_DIST_SQ = 9; // distance squared threshold before fade starts (head to target, in pixels)
 const FADE_SPEED = 0.04; // how fast opacity decreases per frame (0-1)
 
@@ -17,6 +17,7 @@ export default function ClickTrail() {
     let active = false;
     let opacity = 0;
     let fading = false;
+    let initialized = false;
 
     const target = { x: 0, y: 0 };
     const pts = Array.from({ length: N }, () => ({ x: 0, y: 0 }));
@@ -27,7 +28,9 @@ export default function ClickTrail() {
     };
     resize();
 
-    const color = getComputedStyle(document.documentElement).getPropertyValue("--click-trail-color").trim();
+    const color = getComputedStyle(document.documentElement)
+      .getPropertyValue("--click-trail-color")
+      .trim();
     window.addEventListener("resize", resize);
 
     const onMove = (e) => {
@@ -38,15 +41,16 @@ export default function ClickTrail() {
     };
 
     const onDown = (e) => {
+      target.x = e.clientX;
+      target.y = e.clientY;
+      // Only snap on first appearance; otherwise continue from current position
+      if (!initialized) {
+        pts.forEach((p) => { p.x = e.clientX; p.y = e.clientY; });
+        initialized = true;
+      }
       active = true;
       fading = false;
       opacity = 1;
-      target.x = e.clientX;
-      target.y = e.clientY;
-      pts.forEach((p) => {
-        p.x = e.clientX;
-        p.y = e.clientY;
-      });
     };
 
     const onUp = () => {
