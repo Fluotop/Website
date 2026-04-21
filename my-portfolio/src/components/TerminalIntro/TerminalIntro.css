@@ -1,0 +1,58 @@
+.terminal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    background: var(--color-bg);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 4rem 20rem 4rem 8rem; /* clockwise 1 2 3 4 */
+    font-family: 'Courier New', Courier, monospace;
+    color: var(--color-green);
+    font-size: 1.25rem;
+}
+
+.terminal-overlay.fade-out {
+    opacity: 0;
+    transition: opacity 0.6s ease;
+}
+
+ /* style sub elements in */
+
+.terminal-overlay p {
+    margin: 0.15rem 0;
+    line-height: 1.5;
+    white-space: pre-wrap;
+}
+
+.skip-btn {
+    position: absolute;
+    top: 4rem;
+    right: 8rem;
+    background: transparent;
+    color: var(--color-green);
+    font-family: 'Courier New', Courier, monospace;
+    cursor: pointer;
+    border: none;
+    padding: 0.75rem 1.5rem;
+}
+
+.prompt {
+    color: var(--color-green);
+    font-weight: 700;
+}
+
+.terminal-overlay .cursor {
+    display: inline-block;
+    width: 2px;
+    height: 1.25rem;
+    background-color: var(--color-green);
+    vertical-align: text-bottom;
+    animation: blink 1s step-end infinite;
+    margin-left: 1px;
+}
+
+@keyframes blink {
+    from, to { opacity: 1; }
+    50% { opacity: 0; }
+}
