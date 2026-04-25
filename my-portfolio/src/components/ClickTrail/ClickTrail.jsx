@@ -28,9 +28,21 @@ export default function ClickTrail() {
     };
     resize();
 
-    const color = getComputedStyle(document.documentElement)
-      .getPropertyValue("--click-trail-color")
-      .trim();
+    // Read color and pre-position points at center so the first click
+    // animates from center rather than snapping from (0,0).
+    setTimeout(() => {
+      color = getComputedStyle(document.documentElement)
+        .getPropertyValue("--click-trail-color")
+        .trim();
+      const cx = canvas.width / 2;
+      const cy = canvas.height / 2;
+      pts.forEach((p) => { p.x = cx; p.y = cy; });
+      target.x = cx;
+      target.y = cy;
+      initialized = true;
+    }, 100);
+
+    let color = "";
     window.addEventListener("resize", resize);
 
     const onMove = (e) => {

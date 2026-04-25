@@ -1,0 +1,104 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    color: white;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: var(--color-bg);
+    padding: 4rem 12rem 1rem 12rem;
+}
+
+.nav {
+    display: flex;
+    align-items: center;    
+}
+.TextPart:hover {
+    color: var(--color-green);
+    transition: all .2s ease;
+}
+.NumberPart {
+    color: var(--color-green);
+}
+.LinePart {
+    margin: 0 0.5rem;
+    pointer-events: none;
+}
+.nav a {
+    padding: 0 1rem;
+    color: white;
+    cursor: pointer;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+/* Hamburger button - hidden on desktop */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    background: none;
+    border: none;
+    cursor: pointer;
+    gap: 5px;
+    padding: 0;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+/* Mobile - show hamburger */
+@media (max-width: 768px) {
+    header {
+        padding: 1.5rem 2rem;
+        align-items: center;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    /* Hamburger animation */
+    .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg) translate(3px, 3px);
+    }
+
+    .hamburger.active span:nth-child(2) {
+        transform: rotate(-45deg) translate(3px, -3px);
+    }
+
+    .LinePart {
+        display: none;
+    }
+
+    /* Mobile nav */
+    .nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        align-items: flex-start;
+        background-color: rgba(0, 0, 0, 0.9);
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+    }
+
+    .nav.active {
+        max-height: 300px;
+    }
+
+    .nav a {
+        padding: 1rem 2rem;
+        border-radius: 0;
+        width: 100%;
+        box-sizing: border-box;
+    }
+}

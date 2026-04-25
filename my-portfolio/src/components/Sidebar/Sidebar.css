@@ -1,0 +1,25 @@
+
+.sidebar {
+    position: fixed;
+    top: 50%;
+    right: 8rem;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    z-index: 1001; /* Above header*/
+}
+
+.dot {
+    font-size: 20px;
+    color: #bbb;
+    cursor: pointer;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.dot.active {
+    color: var(--color-yellow);
+    transition: color 0.5s ease-in-out;
+
+}

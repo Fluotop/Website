@@ -72,6 +72,14 @@ export default function HeroPanel() {
           <span className="cursor"></span>
         </div>
         <p>Profesional gamer</p>
+        <div className="infolinks">
+          <a href="#contact" className="contact-link">
+            <button>Contact Me</button>
+          </a>
+          <a href="#about" className="about-link">
+            <button>Learn More →</button>
+          </a>
+        </div>
       </div>
     </section>
   );
