@@ -12,7 +12,7 @@ permissions:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    environment: prod
+    environment: production
 
     steps:
       # Checkout repository
