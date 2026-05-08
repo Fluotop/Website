@@ -38,7 +38,7 @@ jobs:
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
-          role-to-assume: arn:aws:iam::123456789012:role/CICD_role
+          role-to-assume: arn:aws:iam::534024918989:role/CICD_role
           aws-region: us-east-1
 
       # Upload build files to S3
