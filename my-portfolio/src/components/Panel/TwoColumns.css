@@ -1,0 +1,12 @@
+.container {
+    display: flex;
+    gap: 20rem;
+    padding-left: 2rem;
+}
+
+.column {
+    flex: 1;
+    max-width: 35rem;
+    padding: 20px;
+    font-size: 1.6rem;
+}

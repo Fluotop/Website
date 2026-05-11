@@ -11,9 +11,15 @@ header {
     padding: 4rem 12rem 1rem 12rem;
 }
 
+.counter {
+    margin-left: 1rem;
+    color: var(--color-green);
+    font-size: 0.85em;
+}
+
 .nav {
     display: flex;
-    align-items: center;    
+    align-items: center;
 }
 .TextPart:hover {
     color: var(--color-green);

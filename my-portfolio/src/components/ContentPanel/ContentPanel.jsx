@@ -1,3 +1,5 @@
+import "./ContentPanel.css";
+
 export default function CreatePanel({ items }) {
   return (
     <div className="content-panel">
