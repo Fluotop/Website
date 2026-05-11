@@ -1,0 +1,1 @@
+{"Modules":[{"Key":"","Source":"","Dir":"."},{"Key":"dynamodb_cv","Source":"./modules/dynamoDB","Dir":"modules/dynamoDB"},{"Key":"label","Source":"./modules/label","Dir":"modules/label"}]}
