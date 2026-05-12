@@ -2,7 +2,8 @@ import "./Header.css";
 import { useEffect, useState } from "react";
 import { panels } from "../../panelsData";
 
-const VISITOR_API = "https://5ilamr0s0c.execute-api.us-east-1.amazonaws.com/prod/visitors";
+const VISITOR_API =
+  "https://jonxbuc736.execute-api.us-east-1.amazonaws.com/prod/visitors";
 
 function CreateLink({ number, text, href, download, onClick }) {
   return (
