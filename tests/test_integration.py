@@ -6,7 +6,7 @@ import importlib
 import json
 import sys
 
-sys.path.append("src")
+sys.path.append(os.path.join(os.path.dirname(__file__), "..", "Terraform", "Lambda"))
 
 @pytest.fixture(scope="function")
 def aws_credentials():
@@ -24,7 +24,7 @@ def test_lambda_handler_existing_values(aws_credentials):
     """Testing visitors updating when there are values available in dynamodb table."""
     
     #Moto redirects function table calls to mock table / always create prod table after test table
-    cv_lambda = importlib.import_module("lambda.lambda_cv")
+    cv_lambda = importlib.import_module("lambda_cv")
     
     #Set up mock table
     dynamodb = boto3.resource("dynamodb", region_name = "us-east-1")
@@ -70,7 +70,7 @@ def test_lambda_handler_existing_values(aws_credentials):
 def test_lambda_handler_empty_table(aws_credentials):
     """Testing visitors updating when there are no values available in dynamodb table."""
     
-    cv_lambda = importlib.import_module("lambda.lambda_cv")
+    cv_lambda = importlib.import_module("lambda_cv")
     
     #Set up mock table
     dynamodb = boto3.resource("dynamodb", region_name = "us-east-1")
