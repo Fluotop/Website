@@ -66,7 +66,7 @@ export default function HeroPanel() {
       <div className="blob blob--green"></div>
       <div className="blob blob--black"></div>
       <div className="hero-content">
-        <h1>Bendm</h1>
+        <h1>Ben</h1>
         <div className="terminal">
           <span className="terminal-text">{text}</span>
           <span className="cursor"></span>
