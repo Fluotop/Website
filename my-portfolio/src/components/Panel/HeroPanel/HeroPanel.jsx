@@ -71,7 +71,7 @@ export default function HeroPanel() {
           <span className="terminal-text">{text}</span>
           <span className="cursor"></span>
         </div>
-        <p>Profesional gamer</p>
+        <p>text</p>
         <div className="infolinks">
           <a href="#contact" className="contact-link">
             <button>Contact Me</button>
