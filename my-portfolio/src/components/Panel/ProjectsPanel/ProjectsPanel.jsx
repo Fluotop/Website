@@ -12,8 +12,7 @@ const projects = [
     id: "project-1",
     title: "Project One",
     image: "https://placehold.co/800x450/1a1a1a/89ff69?text=Project+Preview",
-    description:
-      "A short 1–2 sentence description of what the project does. Explain the problem it solves or the purpose it serves.",
+    description: "description 1",
     tech: ["React", "Node.js", "PostgreSQL", "AWS"],
     impact:
       "Reduced data processing time by 60% through pipeline optimization and async batching.",
@@ -24,8 +23,7 @@ const projects = [
     id: "project-2",
     title: "Project Two",
     image: "https://placehold.co/800x450/1a1a1a/f2ff5b?text=Project+Preview",
-    description:
-      "A short 1–2 sentence description of what the project does. Explain the problem it solves or the purpose it serves.",
+    description: "description 2",
     tech: ["Python", "Airflow", "GCP", "Terraform"],
     impact:
       "Real-time event ingestion handling 10k events/sec with sub-second latency.",
