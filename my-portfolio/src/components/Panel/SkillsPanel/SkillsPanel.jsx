@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import PanelShell from "../PanelShell";
 import "./SkillsPanel.css";
 
@@ -15,18 +16,27 @@ const skills = [
         name: "GCP",
         icon: `${ICON_BASE}/googlecloud/googlecloud-original.svg`,
       },
-      { name: "FinOps", icon: `${ICON_BASE}/grafana/grafana-original.svg` },
+      {
+        name: "FinOps",
+        icon: `${ICON_BASE}/grafana/grafana-original.svg`,
+      },
       {
         name: "Terraform",
         icon: `${ICON_BASE}/terraform/terraform-original.svg`,
       },
-      { name: "Docker", icon: `${ICON_BASE}/docker/docker-original.svg` },
+      {
+        name: "Docker",
+        icon: `${ICON_BASE}/docker/docker-original.svg`,
+      },
     ],
   },
   {
     title: "Pipelines",
     items: [
-      { name: "SQL", icon: `${ICON_BASE}/postgresql/postgresql-original.svg` },
+      {
+        name: "SQL",
+        icon: `${ICON_BASE}/postgresql/postgresql-original.svg`,
+      },
       {
         name: "Data Modeling",
         icon: `${ICON_BASE}/databricks/databricks-original.svg`,
@@ -48,11 +58,34 @@ const skills = [
 ];
 
 const certificates = [
-  { name: "Certificate Placeholder 1" },
-  { name: "Certificate Placeholder 2" },
+  {
+    name: "AWS Data Engineer - Associate",
+    badgeId: "21a32926-16d4-490b-b154-92e660eb4cb7",
+  },
+  {
+    name: "Finops Practitioner",
+    badgeId: "514d8062-cc9b-4c28-a2fd-146bae22615e",
+  },
+  {
+    name: "FOCUS Analyst",
+    badgeId: "55f94965-7ea9-421c-a0ac-b25269bdc819",
+  },
 ];
 
 export default function SkillsPanel() {
+  useEffect(() => {
+    const existingScript = document.querySelector(
+      'script[src="//cdn.credly.com/assets/utilities/embed.js"]',
+    );
+
+    if (!existingScript) {
+      const script = document.createElement("script");
+      script.src = "//cdn.credly.com/assets/utilities/embed.js";
+      script.async = true;
+      document.body.appendChild(script);
+    }
+  }, []);
+
   return (
     <PanelShell name="SKILLS">
       <div className="skills-layout">
@@ -63,10 +96,12 @@ export default function SkillsPanel() {
           enhance my skills. My self-directed learning approach empowers me to
           quickly grasp and adapt to new technologies autonomously.
         </p>
+
         <div className="skills-grid">
           {skills.map((column) => (
             <div key={column.title} className="skills-column">
               <h3 className="skills-column-title">{column.title}</h3>
+
               <ul className="skills-list">
                 {column.items.map((skill) => (
                   <li key={skill.name} className="skill-item">
@@ -77,12 +112,21 @@ export default function SkillsPanel() {
               </ul>
             </div>
           ))}
+
           <div className="skills-column certificates-column">
             <h3 className="skills-column-title">Certificates</h3>
+
             <ul className="certificates-list">
               {certificates.map((cert) => (
                 <li key={cert.name} className="certificate-item">
-                  <div className="certificate-placeholder">
+                  <div className="certificate-badge">
+                    <div
+                      data-iframe-width="150"
+                      data-iframe-height="270"
+                      data-share-badge-id={cert.badgeId}
+                      data-share-badge-host="https://www.credly.com"
+                    />
+
                     <span className="certificate-name">{cert.name}</span>
                   </div>
                 </li>
