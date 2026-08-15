@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import PanelShell from "../PanelShell";
 import "./SkillsPanel.css";
 
@@ -60,32 +59,25 @@ const skills = [
 const certificates = [
   {
     name: "AWS Data Engineer - Associate",
-    badgeId: "21a32926-16d4-490b-b154-92e660eb4cb7",
+    image: "/certificates/aws-data-engineer.png",
+    credlyUrl:
+      "https://www.credly.com/badges/21a32926-16d4-490b-b154-92e660eb4cb7",
   },
   {
-    name: "Finops Practitioner",
-    badgeId: "514d8062-cc9b-4c28-a2fd-146bae22615e",
+    name: "FinOps Certified Practitioner",
+    image: "/certificates/finops-practitioner.png",
+    credlyUrl:
+      "https://www.credly.com/badges/514d8062-cc9b-4c28-a2fd-146bae22615e",
   },
   {
-    name: "FOCUS Analyst",
-    badgeId: "55f94965-7ea9-421c-a0ac-b25269bdc819",
+    name: "CERTIFICATE NAME",
+    image: "/certificates/certificate-3.png",
+    credlyUrl:
+      "https://www.credly.com/badges/55f94965-7ea9-421c-a0ac-b25269bdc819",
   },
 ];
 
 export default function SkillsPanel() {
-  useEffect(() => {
-    const existingScript = document.querySelector(
-      'script[src="//cdn.credly.com/assets/utilities/embed.js"]',
-    );
-
-    if (!existingScript) {
-      const script = document.createElement("script");
-      script.src = "//cdn.credly.com/assets/utilities/embed.js";
-      script.async = true;
-      document.body.appendChild(script);
-    }
-  }, []);
-
   return (
     <PanelShell name="SKILLS">
       <div className="skills-layout">
@@ -116,22 +108,24 @@ export default function SkillsPanel() {
           <div className="skills-column certificates-column">
             <h3 className="skills-column-title">Certificates</h3>
 
-            <ul className="certificates-list">
+            <div className="certificates-grid">
               {certificates.map((cert) => (
-                <li key={cert.name} className="certificate-item">
-                  <div className="certificate-badge">
-                    <div
-                      data-iframe-width="150"
-                      data-iframe-height="270"
-                      data-share-badge-id={cert.badgeId}
-                      data-share-badge-host="https://www.credly.com"
-                    />
-
-                    <span className="certificate-name">{cert.name}</span>
-                  </div>
-                </li>
+                <a
+                  key={cert.credlyUrl}
+                  href={cert.credlyUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="certificate-link"
+                  title={`Verify ${cert.name} on Credly`}
+                >
+                  <img
+                    src={cert.image}
+                    alt={cert.name}
+                    className="certificate-image"
+                  />
+                </a>
               ))}
-            </ul>
+            </div>
           </div>
         </div>
       </div>
