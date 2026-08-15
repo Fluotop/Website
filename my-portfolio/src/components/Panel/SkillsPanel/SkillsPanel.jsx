@@ -59,19 +59,19 @@ const skills = [
 const certificates = [
   {
     name: "AWS Data Engineer - Associate",
-    image: "/certificates/aws-data-engineer.png",
+    image: "/aws-certified-data-engineer-associate.png",
     credlyUrl:
       "https://www.credly.com/badges/21a32926-16d4-490b-b154-92e660eb4cb7",
   },
   {
     name: "FinOps Certified Practitioner",
-    image: "/certificates/finops-practitioner.png",
+    image: "/finops-certified-practitioner-2026.png",
     credlyUrl:
       "https://www.credly.com/badges/514d8062-cc9b-4c28-a2fd-146bae22615e",
   },
   {
     name: "CERTIFICATE NAME",
-    image: "/certificates/certificate-3.png",
+    image: "/finops-certified-focus-analyst-2026.png",
     credlyUrl:
       "https://www.credly.com/badges/55f94965-7ea9-421c-a0ac-b25269bdc819",
   },
