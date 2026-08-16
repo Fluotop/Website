@@ -71,7 +71,12 @@ export default function HeroPanel() {
           <span className="terminal-text">{text}</span>
           <span className="cursor"></span>
         </div>
-        <p>text</p>
+        <p>
+          Engineer with a background in bioinformatics and clinical research,
+          now focused on cloud, DevOps, and data engineering. I enjoy building
+          things from the ground up, automating the boring stuff, and learning
+          something new along the way.
+        </p>
         <div className="infolinks">
           <a href="#contact" className="contact-link">
             <button>Contact Me</button>

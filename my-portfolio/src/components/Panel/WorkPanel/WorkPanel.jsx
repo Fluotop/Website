@@ -39,7 +39,12 @@ export default function WorkPanel() {
   return (
     <PanelShell name="WORK">
       <div className="work-layout">
-        <p className="work-intro">generic text</p>
+        <p className="work-intro">
+          I had the opportunity to work for one of the biggest companies in
+          clinical trials. Allowing me to work in multiple biometrics
+          deparments. I was able to improve the efficiency of cross deparmental
+          processes and realized how valueable data is for a company.
+        </p>
 
         <div className="timeline">
           <span className="timeline-year">{START_YEAR}</span>
